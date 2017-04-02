@@ -6,4 +6,10 @@ class Course < ApplicationRecord
   def to_s
     return title
   end
+
+  def self.search(search)
+    where("name LIKE ?", "%#{search}%")
+    where("title LIKE ?", "%#{search}%")
+
+  end
 end
